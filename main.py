@@ -8,9 +8,7 @@ import uvicorn
 import os
 from dotenv import load_dotenv
 app = FastAPI()
-
-# #client: MongoClient = MongoClient("mongodb://localhost:27017/") 
-#client: MongoClient = MongoClient("mongodb+srv://dairy_system:Rajat2001@cluster0.gplhuqg.mongodb.net/?appName=Cluster0") 
+ 
 load_dotenv()
 MONGO_URI = os.getenv("MONGO_URI")
 client: MongoClient = MongoClient(MONGO_URI)
