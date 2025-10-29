@@ -1,5 +1,7 @@
 import pymongo
 from pymongo.errors import ConnectionFailure
+import os
+from dotenv import load_dotenv
 
 def setup_db():
     """
@@ -8,7 +10,12 @@ def setup_db():
     try:
         # --- 1. Connect to the local MongoDB server ---
         # Replace the local connection with your Atlas SRV string
-        client = pymongo.MongoClient("mongodb+srv://dairy_system:Rajat2001@cluster0.gplhuqg.mongodb.net/?appName=Cluster0")
+  
+ 
+load_dotenv()
+        MONGO_URI = os.getenv("MONGO_URI")
+        client: MongoClient = MongoClient(MONGO_URI)
+        
         # The ismaster command is cheap and does not require auth.
         client.admin.command('ismaster')
         print("--- Successfully connected to MongoDB! ---")
@@ -33,4 +40,5 @@ def setup_db():
 
 
 if __name__ == "__main__":
+
     setup_db()
