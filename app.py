@@ -9,7 +9,7 @@ from streamlit_chat import message
 # --- Page and API Configuration ---
 st.set_page_config(layout="wide", page_title="Dairy Manager")
 
-API_URL = "http://127.0.0.1:8000"
+API_URL = "https://dairy-management-system-w9pd.onrender.com"
 
 st.title("Dairy Management System")
  
@@ -329,4 +329,5 @@ elif st.session_state.page == 'view_customer' and st.session_state.selected_cust
 
 else:
     st.session_state.page = 'home'
+
     st.rerun()
